@@ -408,10 +408,41 @@ button {
   color: var(--first-color);
 }
 
-.about_button {
+/* .about_button {
   display: flex;
   justify-content: center;
+} */
+
+.about_buttons {
+  display: flex;
 }
+
+.about_buttons .about_button {
+  margin-right: 10px; /* Adjust spacing between buttons */
+}
+
+.about_buttons .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 14px; /* Adjust the font size as needed */
+}
+
+.about_buttons .button--small {
+  font-size: 12px; /* Adjust the font size as needed */
+}
+
+.about_buttons .button_icon {
+  margin-left: 5px; /* Adjust the icon's spacing as needed */
+}
+
+
+
+
+
 
 /* SKILLS  */
 .skills_container {
@@ -1029,4 +1060,25 @@ button {
   .contact_inputs {
     grid-template-columns: repeat(2, 1fr);
   }
+
+
+ 
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px; /* Adjust gap between grid items */
+}
+
+.grid-item {
+    /* Style for each grid item */
+    width: calc(33.33% - 10px); /* Adjust width of grid items */
+    height: 150px; /* Adjust height of grid items */
+    background-color: #f0f0f0; /* Placeholder background color */
+    /* Additional styling for grid items */
+}
+
+
+
+
+
 }
