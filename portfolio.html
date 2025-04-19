@@ -2,63 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>My Showcase</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+  <!-- Meta -->
+  <meta name="description" content="Muzammil Khan Video Portfolio" />
+  <meta name="keywords" content="Muzammil Khan, video portfolio, Behance, design" />
+  <meta property="og:title" content="Muzammil Khan Video Portfolio" />
+  <meta property="og:description" content="A showcase of unlisted YouTube videos by Muzammil Khan" />
+  <meta property="og:type" content="website" />
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <script src="https://kit.fontawesome.com/4bf48f78b4.js" crossorigin="anonymous"></script>
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <title>Video Portfolio - Muzammil Khan</title>
   <style>
-    :root {
-      --primary: #0073e6;
-      --bg: #f5f7fa;
-      --card-bg: #fff;
-      --text: #333;
-      --radius: 8px;
-      --gap: 20px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-    }
-    header {
-      background: var(--card-bg);
-      padding: 40px 20px;
+    /* Video grid styling */
+    .videos_header {
       text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin: 3rem 0;
     }
-    .btn-portfolio {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 12px 24px;
-      border-radius: var(--radius);
-      transition: background .2s;
-    }
-    .btn-portfolio:hover {
-      background: darken(var(--primary),10%);
-    }
-    main {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .videos {
+    .videos_grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: var(--gap);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding-bottom: 4rem;
     }
     .video-wrapper {
       position: relative;
       width: 100%;
       padding-bottom: 56.25%; /* 16:9 */
-      background: var(--card-bg);
-      border-radius: var(--radius);
       overflow: hidden;
+      border-radius: 0.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .video-wrapper iframe {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: 0;
@@ -66,37 +51,85 @@
   </style>
 </head>
 <body>
-
-  <header>
-    <a
-      href="https://www.behance.net/muzammilkhan67" 
-      target="_blank" 
-      class="btn-portfolio"
-    >
-      View My Behance Portfolio
-    </a>
+  <!-- Header (copied from index.html) -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="./index.html" class="nav_logo">Muzammil</a>
+      <div class="nav_menu" id="nav-menu">
+        <ul class="nav_list grid">
+          <li class="nav_item"><a href="./index.html#home" class="nav_link"><i class="uil uil-estate nav_icon"></i> Home</a></li>
+          <li class="nav_item"><a href="./index.html#about" class="nav_link"><i class="uil uil-user nav_icon"></i> About</a></li>
+          <li class="nav_item"><a href="./index.html#skills" class="nav_link"><i class="uil uil-file-alt nav_icon"></i> Skills</a></li>
+          <li class="nav_item"><a href="./index.html#qualification" class="nav_link"><i class="uil uil-graduation-cap nav_icon"></i> Qualifications</a></li>
+          <li class="nav_item"><a href="./index.html#projects" class="nav_link"><i class="uil uil-scenery nav_icon"></i> Projects</a></li>
+          <li class="nav_item"><a href="./index.html#contact" class="nav_link"><i class="uil uil-message nav_icon"></i> Contact</a></li>
+        </ul>
+        <i class="uil uil-times nav_close" id="nav-close"></i>
+      </div>
+      <div class="nav_btns">
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+        <div class="nav_toggle" id="nav-toggle"><i class="uil uil-apps"></i></div>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <section class="videos">
-      <!-- replace YOUR_VIDEO_ID_x with your unlisted IDs -->
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/parjN_t7nEk" allowfullscreen></iframe>
+  <!-- Main Content -->
+  <main class="main">
+    <section class="portfolio section" id="videos">
+      <h2 class="section_title">Video Portfolio</h2>
+      <span class="section_subtitle">Unlisted YouTube Showcase</span>
+      <div class="videos_header">
+        <a href="https://www.behance.net/muzammilkhan67" target="_blank" class="button button--flex">
+          <i class="uil uil-behance"></i>&nbsp;View My Behance Portfolio
+        </a>
       </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/oqUIJcwKcbA" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/mL-fSRJbaAM" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" allowfullscreen></iframe>
+      <div class="container videos_grid">
+        <!-- Video Items: replace IDs with your unlisted video IDs -->
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/parjN_t7nEk" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/oqUIJcwKcbA" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/mL-fSRJbaAM" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" allowfullscreen></iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" allowfullscreen></iframe>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer (copied from index.html) -->
+  <footer class="footer">
+    <div class="footer_bg">
+      <div class="footer_container container grid">
+        <div><h1 class="footer_title">Muzammil</h1></div>
+        <ul class="footer_links">
+          <li><a href="./index.html#about" class="footer_link">About</a></li>
+          <li><a href="./index.html#projects" class="footer_link">Projects</a></li>
+          <li><a href="./index.html#contact" class="footer_link">Contact</a></li>
+        </ul>
+        <div class="footer_socials">
+          <a href="https://www.linkedin.com/in/yemkhan/" target="_blank" class="footer_social"><i class="uil uil-linkedin-alt"></i></a>
+          <a href="https://github.com/yemkhan/" target="_blank" class="footer_social"><i class="uil uil-github-alt"></i></a>
+          <a href="https://twitter.com/yemkhan" target="_blank" class="footer_social"><i class="uil uil-twitter-alt"></i></a>
+          <a href="https://youtube.com/yem4k" target="_blank" class="footer_social"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/muzamm.l/" target="_blank" class="footer_social"><i class="uil uil-instagram"></i></a>
+          <a href="https://www.behance.net/muzammilkhan67" target="_blank" class="footer_social"><i class="uil uil-behance"></i></a>
+        </div>
+      </div>
+      <p class="footer_copy">&copy; Muzammil Khan | 2024</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./assets/js/swiper-bundle.min.js"></script>
+  <script src="./assets/js/typed.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
