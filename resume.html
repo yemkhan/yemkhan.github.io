@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+
+  <!-- Meta -->
+  <meta name="description" content="Muzammil Khan Resume" />
+  <meta name="keywords" content="Muzammil Khan, Resume, Motion Designer, Marketing Artist" />
+
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <script src="https://kit.fontawesome.com/4bf48f78b4.js" crossorigin="anonymous"></script>
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <title>Resume — Muzammil Khan</title>
+
+  <style>
+    .resume-container {
+      width: 100%;
+      height: calc(100vh - 120px);
+      padding: 1rem;
+    }
+    .resume-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      background: #000;
+    }
+    .resume-actions {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="./index.html" class="nav_logo">Muzammil</a>
+
+    <div class="nav_menu" id="nav-menu">
+      <ul class="nav_list grid">
+        <li class="nav_item">
+          <a href="./index.html" class="nav_link">
+            <i class="uil uil-estate nav_icon"></i> Home
+          </a>
+        </li>
+
+        <li class="nav_item">
+          <a href="./resume.html" class="nav_link active-link">
+            <i class="uil uil-file-alt nav_icon"></i> Resume
+          </a>
+        </li>
+
+        <li class="nav_item">
+          <a href="https://www.behance.net/muzammilkhan67" target="_blank" class="nav_link">
+            <i class="uil uil-behance nav_icon"></i> Behance
+          </a>
+        </li>
+
+        <li class="nav_item">
+          <a href="./index.html#contact" class="nav_link">
+            <i class="uil uil-message nav_icon"></i> Contact
+          </a>
+        </li>
+      </ul>
+
+      <i class="uil uil-times nav_close" id="nav-close"></i>
+    </div>
+
+    <div class="nav_btns">
+      <i class="uil uil-moon change-theme" id="theme-button"></i>
+      <div class="nav_toggle" id="nav-toggle">
+        <i class="uil uil-apps"></i>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+  <section class="section">
+    <h2 class="section_title">My Resume</h2>
+    <span class="section_subtitle">View or download</span>
+
+    <div class="resume-actions">
+      <a href="https://yemkhan.github.io/assets/pdf/MuzammilKhanResume.pdf" download class="button button--flex">
+        <i class="uil uil-download-alt"></i>&nbsp;Download Resume
+      </a>
+    </div>
+
+    <div class="resume-container container">
+      <iframe
+        src="https://yemkhan.github.io/assets/pdf/MuzammilKhanResume.pdf"
+        class="resume-frame"
+        title="Muzammil Khan Resume">
+      </iframe>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ===== SCROLL TOP ===== -->
+<a href="#" class="scrollup" id="scroll-up">
+  <i class="uil uil-arrow-up scrollup_icon"></i>
+</a>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer_bg">
+    <div class="footer_container container grid">
+      <div><h1 class="footer_title">Muzammil</h1></div>
+      <ul class="footer_links">
+        <li><a href="./index.html#about" class="footer_link">About</a></li>
+        <li><a href="./index.html#projects" class="footer_link">Projects</a></li>
+        <li><a href="./index.html#contact" class="footer_link">Contact</a></li>
+      </ul>
+
+      <div class="footer_socials">
+        <a href="https://www.linkedin.com/in/yemkhan/" target="_blank" class="footer_social"><i class="uil uil-linkedin-alt"></i></a>
+        <a href="https://github.com/yemkhan/" target="_blank" class="footer_social"><i class="uil uil-github-alt"></i></a>
+        <a href="https://twitter.com/yemkhan" target="_blank" class="footer_social"><i class="uil uil-twitter-alt"></i></a>
+        <a href="https://youtube.com/yem4k" target="_blank" class="footer_social"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/muzamm.l/" target="_blank" class="footer_social"><i class="uil uil-instagram"></i></a>
+        <a href="https://www.behance.net/muzammilkhan67" target="_blank" class="footer_social"><i class="uil uil-behance"></i></a>
+      </div>
+    </div>
+
+    <p class="footer_copy">&copy; Muzammil Khan | 2025</p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="./assets/js/swiper-bundle.min.js"></script>
+<script src="./assets/js/typed.js"></script>
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>
