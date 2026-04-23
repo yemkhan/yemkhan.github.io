@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yemkhan | Video Editor Pricing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLES */
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1e;
+            --accent-color: #6c5ce7;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header span {
+            color: var(--accent-color);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Fluid Grids for fully responsive layout */
+        .video-grid-vertical {
+            display: grid;
+            /* Auto-fits 3 columns on desktop, 1-2 on mobile/tablet */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .video-grid-horizontal {
+            display: grid;
+            /* Auto-fits 2 columns on desktop, 1 on mobile */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 20px;
+        }
+
+        /* Placeholders */
+        .placeholder {
+            background-color: var(--card-bg);
+            border: 2px dashed #333;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .placeholder:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* 9:16 Aspect Ratio for Reels */
+        .vertical-video {
+            aspect-ratio: 9 / 16;
+        }
+
+        /* 16:9 Aspect Ratio for YouTube */
+        .horizontal-video {
+            aspect-ratio: 16 / 9;
+        }
+
+        /* Pricing Section */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            border-top: 5px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            flex-grow: 1; /* Pushes the button to the bottom evenly */
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .pricing-card ul li::before {
+            content: "✓";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #5544c7;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            margin-top: 50px;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yemkhan <span>Edits</span></h1>
+        <p>Professional Video Editing | Performance Driven Content</p>
+    </header>
+
+    <!-- Vertical Video Portfolio Section -->
+    <section>
+        <h2>Short-Form / Reels</h2>
+        <div class="video-grid-vertical">
+            <div class="placeholder vertical-video">Vertical Reel 1 <br>(Replace with video)</div>
+            <div class="placeholder vertical-video">Vertical Reel 2 <br>(Replace with video)</div>
+            <div class="placeholder vertical-video">Vertical Reel 3 <br>(Replace with video)</div>
+        </div>
+    </section>
+
+    <!-- Horizontal Video Portfolio Section -->
+    <section>
+        <h2>Long-Form / YouTube</h2>
+        <div class="video-grid-horizontal">
+            <div class="placeholder horizontal-video">YouTube Edit 1 <br>(Replace with video)</div>
+            <div class="placeholder horizontal-video">YouTube Edit 2 <br>(Replace with video)</div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <h2>Pricing Packages</h2>
+        <div class="pricing-container">
+            
+            <!-- Pricing Card 1 -->
+            <div class="pricing-card">
+                <h3>Vertical Reels</h3>
+                <div class="price">₹XXXX<span> / 30 sec</span></div>
+                <ul>
+                    <li>High-retention editing style</li>
+                    <li>Performance-driven reel format</li>
+                    <li>Catchy SFX (Sound Effects) & Mixing</li>
+                    <li>Dynamic Captions & Motion Graphics</li>
+                </ul>
+                <a href="https://calendar.app.google/euuXwGqvdBtSEUYu6" target="_blank" class="btn">Book a Call</a>
+            </div>
+
+            <!-- Pricing Card 2 -->
+            <div class="pricing-card">
+                <h3>YouTube Edits</h3>
+                <div class="price">₹XXXX<span> / minute</span></div>
+                <ul>
+                    <li>Horizontal format (16:9)</li>
+                    <li>Professional cuts and pacing</li>
+                    <li>Audio leveling and syncing</li>
+                    <li><strong>Note:</strong> Pricing is without DI (Color Grading)</li>
+                </ul>
+                <a href="https://calendar.app.google/euuXwGqvdBtSEUYu6" target="_blank" class="btn">Book a Call</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Yemkhan Edits. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
