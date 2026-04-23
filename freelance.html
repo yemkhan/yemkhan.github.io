@@ -6,7 +6,6 @@
     <title>Yemkhan | Video Editor Pricing</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS STYLES */
         :root {
             --bg-color: #0f0f11;
             --card-bg: #1a1a1e;
@@ -28,14 +27,13 @@
             line-height: 1.6;
         }
 
-        /* Header */
         header {
             text-align: center;
             padding: 60px 20px 40px;
         }
 
         header h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -51,7 +49,6 @@
             margin-top: 10px;
         }
 
-        /* Sections */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -70,23 +67,36 @@
             transform: translateX(-50%);
         }
 
-        /* Fluid Grids for fully responsive layout */
         .video-grid-vertical {
             display: grid;
-            /* Auto-fits 3 columns on desktop, 1-2 on mobile/tablet */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
 
         .video-grid-horizontal {
             display: grid;
-            /* Auto-fits 2 columns on desktop, 1 on mobile */
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
         }
 
-        /* Placeholders */
+        /* Reel video styling */
+        .reel-wrapper {
+            aspect-ratio: 9 / 16;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .reel-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Horizontal video styling */
         .placeholder {
             background-color: var(--card-bg);
             border: 2px dashed #333;
@@ -108,17 +118,11 @@
             transform: translateY(-5px);
         }
 
-        /* 9:16 Aspect Ratio for Reels */
-        .vertical-video {
-            aspect-ratio: 9 / 16;
-        }
-
-        /* 16:9 Aspect Ratio for YouTube */
         .horizontal-video {
             aspect-ratio: 16 / 9;
         }
 
-        /* Pricing Section */
+        /* Pricing */
         .pricing-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -165,7 +169,7 @@
             list-style: none;
             margin-bottom: 30px;
             text-align: left;
-            flex-grow: 1; /* Pushes the button to the bottom evenly */
+            flex-grow: 1;
         }
 
         .pricing-card ul li {
@@ -219,9 +223,19 @@
     <section>
         <h2>Short-Form / Reels</h2>
         <div class="video-grid-vertical">
-            <div class="placeholder vertical-video">Vertical Reel 1 <br>(Replace with video)</div>
-            <div class="placeholder vertical-video">Vertical Reel 2 <br>(Replace with video)</div>
-            <div class="placeholder vertical-video">Vertical Reel 3 <br>(Replace with video)</div>
+
+            <div class="reel-wrapper">
+                <video src="assets/pdf/muzammil-reel1.mp4" controls playsinline loop muted></video>
+            </div>
+
+            <div class="reel-wrapper">
+                <video src="assets/pdf/muzammil-reel2.mp4" controls playsinline loop muted></video>
+            </div>
+
+            <div class="reel-wrapper">
+                <video src="assets/pdf/muzammil-reel3.mp4" controls playsinline loop muted></video>
+            </div>
+
         </div>
     </section>
 
@@ -229,8 +243,15 @@
     <section>
         <h2>Long-Form / YouTube</h2>
         <div class="video-grid-horizontal">
-            <div class="placeholder horizontal-video">YouTube Edit 1 <br>(Replace with video)</div>
-            <div class="placeholder horizontal-video">YouTube Edit 2 <br>(Replace with video)</div>
+
+            <div style="aspect-ratio: 16/9; background-color: var(--card-bg); border-radius: 12px; overflow: hidden;">
+                <video src="assets/pdf/muzammil-youtube1.mp4" controls playsinline loop muted style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+            </div>
+
+            <div style="aspect-ratio: 16/9; background-color: var(--card-bg); border-radius: 12px; overflow: hidden;">
+                <video src="assets/pdf/muzammil-youtube2.mp4" controls playsinline loop muted style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+            </div>
+
         </div>
     </section>
 
@@ -238,8 +259,7 @@
     <section id="pricing">
         <h2>Pricing Packages</h2>
         <div class="pricing-container">
-            
-            <!-- Pricing Card 1 -->
+
             <div class="pricing-card">
                 <h3>Vertical Reels</h3>
                 <div class="price">₹XXXX<span> / 30 sec</span></div>
@@ -252,7 +272,6 @@
                 <a href="https://calendar.app.google/euuXwGqvdBtSEUYu6" target="_blank" class="btn">Book a Call</a>
             </div>
 
-            <!-- Pricing Card 2 -->
             <div class="pricing-card">
                 <h3>YouTube Edits</h3>
                 <div class="price">₹XXXX<span> / minute</span></div>
