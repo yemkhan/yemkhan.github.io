@@ -410,11 +410,10 @@ button {
 
 /* .about_button {
   display: flex;
-  justify-content: center;
 } */
 
-.about_buttons {
-  display: flex;
+.about_data .about_button {
+  display: flex-direction: column;
 }
 
 .about_buttons .about_button {
