@@ -2,472 +2,512 @@
 <html lang="en">
 
 <head>
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="https://cdn.bio.link/uploads/profile_pictures/2021-09-01/tE8wirBYKrXgipi0HP0GK69YD9TzfsDY.png" type="image/webp">
-        <link rel="icon" href="https://cdn.bio.link/uploads/profile_pictures/2021-09-01/tE8wirBYKrXgipi0HP0GK69YD9TzfsDY.png" type="image/webp">
-        <meta name="description" content="Muzammil Khan Web" />
-        <meta name="keywords" content="Muzammil Mohammed Khan,yemkhan,Muzammil Khan,Muzammilmkhan,mkhan.in,muzamm.l,yem4k" />
-    
-        <meta property="og:title" content="Muzammil Khan" />
-        <meta property="og:url" content="https://yemkhan.github.io" />
-        <meta property="og:image" content="https://yemkhan.github.io/assets/img/icon.png" />
-        <meta property="og:description" content="Muzammil Khan Web" />
-        <meta property="og:type" content="website" />
-    
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Muzammil Khan" />
-        <meta name="twitter:image" content="https://yemkhan.github.io/assets/img/icon.png" />
-        <meta name="twitter:description" content="Muzammil Khan Web" />
-    
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-        <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="./assets/css/style.css" />
-        <title>Muzammil Khan</title>
-        <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
-        <script src="https://kit.fontawesome.com/4bf48f78b4.js" crossorigin="anonymous"></script>
-    </head>
-    
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Muzammil Khan — Designer & Vibe Architect from Kerala, India. Proficient in Adobe Creative Suite, After Effects, and more." />
+  <meta name="keywords" content="Muzammil Mohammed Khan,yemkhan,Muzammil Khan,Muzammilmkhan,mkhan.in,muzamm.l,yem4k" />
+  <link rel="canonical" href="https://yemkhan.github.io" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Muzammil Khan" />
+  <meta property="og:url" content="https://yemkhan.github.io" />
+  <meta property="og:image" content="https://yemkhan.github.io/assets/img/icon.png" />
+  <meta property="og:description" content="Designer & Vibe Architect from Kerala, India." />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Muzammil Khan" />
+  <meta name="twitter:image" content="https://yemkhan.github.io/assets/img/icon.png" />
+  <meta name="twitter:description" content="Designer & Vibe Architect from Kerala, India." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Font Awesome (deferred to avoid render-blocking) -->
+  <script defer src="https://kit.fontawesome.com/4bf48f78b4.js" crossorigin="anonymous"></script>
+
+  <title>Muzammil Khan</title>
+
+  <!-- Scroll-reveal animation styles -->
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Toast notification */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(60px);
+      background: var(--first-color, #3b82f6);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 9999;
+      pointer-events: none;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav_logo">Muzammil </a>
 
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list grid">
-                    <li class="nav_item">
-                        <a href="#home" class="nav_link active-link">
-                            <i class="uil uil-estate nav_icon"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#about" class="nav_link">
-                            <i class="uil uil-user nav_icon"></i> About
-                        </a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="#skills" class="nav_link">
-                            <i class="uil uil-file-alt nav_icon"></i> Skills
-                        </a>
-                    </li>
-            
-                    <li class="nav_item">
+  <!-- Toast -->
+  <div id="toast">📋 Email copied!</div>
 
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav_logo">Muzammil</a>
 
-                        <a href="#contact" class="nav_link">
-                            <i class="uil uil-message nav-icon nav_icon"></i> Contact
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav_close" id="nav-close"></i>
-            </div>
+      <div class="nav_menu" id="nav-menu">
+        <ul class="nav_list grid">
+          <li class="nav_item">
+            <a href="#home" class="nav_link active-link">
+              <i class="uil uil-estate nav_icon"></i> Home
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="#about" class="nav_link">
+              <i class="uil uil-user nav_icon"></i> About
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="#skills" class="nav_link">
+              <i class="uil uil-file-alt nav_icon"></i> Skills
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="#contact" class="nav_link">
+              <i class="uil uil-message nav_icon"></i> Contact
+            </a>
+          </li>
+        </ul>
+        <i class="uil uil-times nav_close" id="nav-close"></i>
+      </div>
 
-            <div class="nav_btns">
-                <!-- Change Theme -->
-                <i class="uil uil-moon change-theme" id="theme-button"></i>
+      <div class="nav_btns">
+        <!-- Theme Toggle — FIXED -->
+        <i class="uil uil-moon change-theme" id="theme-button" title="Toggle theme"></i>
+        <div class="nav_toggle" id="nav-toggle">
+          <i class="uil uil-apps"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-                <div class="nav_toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <!-- ===== MAIN ===== -->
+  <main class="main">
 
-    <!-- Main -->
-    <main class="main">
-        <!-- Home -->
-        <section class="home section" id="home">
-            <div class="home_container container grid">
-                <div class="home_content grid">
-                    <div class="home_social">
-                        <a href="https://www.linkedin.com/in/yemkhan/" class="home_social-icon" target="_blank">
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
+    <!-- HOME -->
+    <section class="home section reveal" id="home">
+      <div class="home_container container grid">
+        <div class="home_content grid">
 
-                        <a href="https://youtube.com/yem4k" class="home_social-icon" target="_blank">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+          <div class="home_social">
+            <a href="https://www.linkedin.com/in/yemkhan/" class="home_social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="uil uil-linkedin-alt"></i>
+            </a>
+            <a href="https://youtube.com/yem4k" class="home_social-icon" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com/yemkhan" class="home_social-icon" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i class="uil uil-twitter-alt"></i>
+            </a>
+            <a href="https://www.instagram.com/muzamm.l/" class="home_social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="uil uil-instagram"></i>
+            </a>
+          </div>
 
-                        <a href="https://twitter.com/yemkhan" class="home_social-icon" target="_blank">
-                            <i class="uil uil-twitter-alt"></i>
-                        </a>
-
-                        <a href="https://www.instagram.com/muzamm.l/" class="home_social-icon" target="_blank">
-                            <i class="uil uil-instagram"></i>
-                        </a>
-                    </div>
-
-                    <div class="home_img">
-                        <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <div class="home_img">
+            <svg class="home_blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <mask id="mask0" mask-type="alpha">
                 <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                  130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                  97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                  0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
               </mask>
               <g mask="url(#mask0)">
                 <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                  165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
+                  129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
+                  -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
               </g>
               <image class="home_blob-img" x="12" y="8" href="./assets/img/icon.png" />
             </svg>
-                    </div>
+          </div>
 
-                    <div class="home_data">
-            
-                        <h1 class="home_title">Muzammil</h1>
-                        <h1 class="home_title">Khan</h1>
-                        <h3 class="home_subtitle">I am <span class="type"></span>Designer</h3>
-
-                        <p class="home_description">
-                            (YEM4K)
-                        </p>
-<a href="https://yemkhan.github.io/freelance" class="button button--flex ai-style-change-1" target="_blank">Get a Quote</a>
-
-
-              <i class="uil uil-message"></i>
+          <div class="home_data">
+            <h1 class="home_title">Muzammil</h1>
+            <h1 class="home_title">Khan</h1>
+            <h3 class="home_subtitle">I am <span class="type"></span>Designer</h3>
+            <p class="home_description">(YEM4K)</p>
+            <a href="https://yemkhan.github.io/freelance" class="button button--flex ai-style-change-1" target="_blank" rel="noopener noreferrer">
+              Get a Quote
+              <i class="uil uil-message button_icon"></i>
             </a>
-                    </div>
-                </div>
-
-                <div class="home_scroll">
-                    <a href="#about" class="home_scroll-button button--flex">
-                        <i class="uil uil-mouse-alt home_scroll-mouse"></i>
-                        <span class="home_scroll-name">Scroll Down</span>
-                        <i class="uil uil-arrow-down home_scroll-arrow"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About -->
-        <section class="about section" id="about">
-            <h2 class="section_title">About Me</h2>
-            <span class="section_subtitle">My introduction</span>
-            <div class="about_container container grid">
-                <!-- <img src="./assets/img/about.png" alt="" class="about_img" /> -->
-                <div class="about_data">
-                  <p class="about_description">
-    Hi! 👋 <strong>I'm Muzammil Khan</strong><br>
-    Designer // Vibe Architect from Kerala, India<br>
-    Proficient in Adobe Creative Suite<br>
- 🎮 🎬 💻 <br>
-    ☕ Buy me a coffee: mkhanpay@apl
-</p>
-
-    <div class="about_button">
-      <a
-        href="https://yemkhan.github.io/RedBird"
-        target="_blank"
-        class="button button--small"
-      >
-        RedBird Game
-        <i class="fab fa-gamepad button_icon"></i>
-      </a>
-    </div>
-    <div class="about_button">
-      <a
-        href="https://yemkhan.github.io/portfolio"
-        target="_blank"
-        class="button button--small"
-      >
-        Motion Portfolio
-        <i class="fa fa-expand button_icon"></i>
-      </a>
-
-
-                        </div>
-                    </div>
-                    
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-<section class="skills section" id="skills">
-    <h1 class="section_title">Skills</h1>
-    <span class="section_subtitle">My Technical Skills</span>s
-    <div class="skills_container container grid">
-        <!-- Skill Set 1 -->
-        <div class="skill skills_content skills_open">
-            <div class="skills_header">
-                <i class="uil uil-wrench skills_icon"></i>
-
-                <div>
-                    <h1 class="skills_title">Adobe</h1>
-                    <span class="skills_subtitle"><P></P>Proficient in</span>
-                </div>
-
-                <i class="uil uil-angle-down skills_arrow"></i>
-            </div>
-
-            <div class="skills_list grid">
-                <div class="skills_data">
-                    <div class="skills_titles">
-                        <span class="single_skill_icon external-logo">
-                            <img src="assets/img/xdadobe.png" alt="adobe">
-                        </span>
-                        <h3 class="skills_name">After Effects</h3>
-                    </div>
-                    <div class="skills_bar"></div>
-                </div>
-
-                <div class="skills_data">
-                    <div class="skills_titles">
-                        <span class="single_skill_icon external-logo">
-                            <img src="assets/img/xdadobe.png" alt="adobe">
-                        </span>
-                        <h3 class="skills_name">Photoshop</h3>
-                    </div>
-                    <div class="skills_bar"></div>
-                </div>
-
-                <div class="skills_data">
-                    <div class="skills_titles">
-                        <span class="single_skill_icon external-logo">
-                            <img src="assets/img/xdadobe.png" alt="adobe">
-                        </span>
-                        <h3 class="skills_name">Premiere Pro</h3>
-                    </div>
-                    <div class="skills_bar"></div>
-                </div>
-
-                <div class="skills_data">
-                    <div class="skills_titles">
-                        <span class="single_skill_icon external-logo">
-                            <img src="assets/img/xdadobe.png" alt="adobe">
-                        </span>
-                        <h3 class="skills_name">Unity3D</h3>
-                    </div>
-                    <div class="skills_bar"></div>
-                </div>
-            </div>
+          </div>
         </div>
 
+        <div class="home_scroll">
+          <a href="#about" class="home_scroll-button button--flex">
+            <i class="uil uil-mouse-alt home_scroll-mouse"></i>
+            <span class="home_scroll-name">Scroll Down</span>
+            <i class="uil uil-arrow-down home_scroll-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <!-- ABOUT -->
+    <section class="about section reveal" id="about">
+      <h2 class="section_title">About Me</h2>
+      <span class="section_subtitle">My introduction</span>
+      <div class="about_container container grid">
+        <div class="about_data">
+          <p class="about_description">
+            Hi! 👋 <strong>I'm Muzammil Khan</strong><br>
+            Designer // Vibe Architect from Kerala, India<br>
+            Proficient in Adobe Creative Suite<br>
+            🎮 🎬 💻<br>
+            ☕ Buy me a coffee: mkhanpay@apl
+          </p>
 
+          <div class="about_button">
+            <a href="https://yemkhan.github.io/RedBird" target="_blank" rel="noopener noreferrer" class="button button--small">
+              RedBird Game
+              <i class="fas fa-gamepad button_icon"></i>
+            </a>
+          </div>
+          <div class="about_button">
+            <a href="https://yemkhan.github.io/portfolio" target="_blank" rel="noopener noreferrer" class="button button--small">
+              Motion Portfolio
+              <i class="fa fa-expand button_icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <!-- Skill Set 3 -->
-                <div class="skill skills_content">
-                    <div class="skills_header">
-                        <i class="uil uil-arrow skills_icon"></i>
+    <!-- SKILLS -->
+    <section class="skills section reveal" id="skills">
+      <h2 class="section_title">Skills</h2>
+      <span class="section_subtitle">My Technical Skills</span>
+      <div class="skills_container container grid">
 
-                        <div>
-                            <h1 class="skills_title">Plugins</h1>
-                            <span class="skills_subtitle">Mastered Ae plugins</span>
-                        </div>
-
-                        <i class="uil uil-angle-down skills_arrow"></i>
-                    </div>
-
-                    <div class="skills_list grid">
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                  <!-- <i class="fab fa-git-alt"></i> -->
-                </span>
-                                <h3 class="skills_name">Camera 3D</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                  <!-- <i class="fab fa-github"></i> -->
-                </span>
-                                <h3 class="skills_name">Element 3D</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon external-logo">
-                  <!-- <img src="./assets/img/Firebase.png" alt=""> -->
-                </span>
-                                <h3 class="skills_name">Sapphire</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon">
-                  <!-- <i class="fab fa-figma"></i> -->
-                </span>
-                                <h3 class="skills_name">VideoCopilot</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-
-                        <div class="skills_data">
-                            <div class="skills_titles">
-                                <span class="single_skill_icon external-logo">
-                 <!-- <img src="assets/img/xdadobe.png" alt="adobe"> -->
-                </span>
-                                <h3 class="skills_name">BorisCC</h3>
-                            </div>
-                            <div class="skills_bar"></div>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- Skill Set 1: Adobe -->
+        <div class="skill skills_content skills_open">
+          <div class="skills_header">
+            <i class="uil uil-wrench skills_icon"></i>
+            <div>
+              <h1 class="skills_title">Adobe</h1>
+              <span class="skills_subtitle">Proficient in</span>
             </div>
-        </section>
+            <i class="uil uil-angle-down skills_arrow"></i>
+          </div>
 
+          <div class="skills_list grid">
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon external-logo">
+                  <img src="assets/img/xdadobe.png" alt="Adobe After Effects icon">
+                </span>
+                <h3 class="skills_name">After Effects</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
-        
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon external-logo">
+                  <img src="assets/img/xdadobe.png" alt="Adobe Photoshop icon">
+                </span>
+                <h3 class="skills_name">Photoshop</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
-                    
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon external-logo">
+                  <img src="assets/img/xdadobe.png" alt="Adobe Premiere Pro icon">
+                </span>
+                <h3 class="skills_name">Premiere Pro</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
-                        <!-- TSF -->
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon external-logo">
+                  <img src="assets/img/xdadobe.png" alt="Adobe icon">
+                </span>
+                <h3 class="skills_name">Unity3D</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
+          </div>
+        </div>
 
+        <!-- Skill Set 2: Plugins -->
+        <div class="skill skills_content">
+          <div class="skills_header">
+            <i class="uil uil-arrow skills_icon"></i>
+            <div>
+              <h1 class="skills_title">Plugins</h1>
+              <span class="skills_subtitle">Mastered Ae plugins</span>
+            </div>
+            <i class="uil uil-angle-down skills_arrow"></i>
+          </div>
 
+          <div class="skills_list grid">
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon"></span>
+                <h3 class="skills_name">Camera 3D</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon"></span>
+                <h3 class="skills_name">Element 3D</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon external-logo"></span>
+                <h3 class="skills_name">Sapphire</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon"></span>
+                <h3 class="skills_name">VideoCopilot</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
 
-        <!-- Portfolio -->
-    
+            <div class="skills_data">
+              <div class="skills_titles">
+                <span class="single_skill_icon external-logo"></span>
+                <h3 class="skills_name">BorisCC</h3>
+              </div>
+              <div class="skills_bar"></div>
+            </div>
+          </div>
+        </div>
 
-        <!-- Contact Me -->
-        <section class="contact section" id="contact">
-            <h1 class="section_title">Ping Me</h1>
-            <span class="section_subtitle">
-       Drop a message — it’s quick, easy, and anonymous.
-      </span>
+      </div>
+    </section>
 
-            <div class="contact_container container grid">
-                <div>
-                    <a href="mailto:2mail2mkhan@gmail.com" target="_blank">
-                        <div class="contact_info">
-                            <i class="uil uil-envelope-alt contact_icon"></i>
-                            <div>
-                                <h3 class="contact_title">Email</h3>
-                                <span class="contact_subtitle">2mail2mkhan@gmail.com</span>
-                            </div>
-                        </div>
-                    </a>
+    <!-- CONTACT -->
+    <section class="contact section reveal" id="contact">
+      <h2 class="section_title">Ping Me</h2>
+      <span class="section_subtitle">Drop a message — it's quick, easy, and anonymous.</span>
 
-                    <a href="https://twitter.com/yemkhan" target="_blank">
-                        <div class="contact_info">
-                            <i class="uil uil-twitter-alt contact_icon"></i>
-                            <div>
-                                <h3 class="contact_title">Twitter</h3>
-                                <span class="contact_subtitle">@yemkhan</span>
-                            </div>
-                        </div>
-                    </a>
+      <div class="contact_container container grid">
+        <div>
+          <!-- Clicking email copies it to clipboard -->
+          <div class="contact_info" id="copy-email" style="cursor:pointer;" title="Click to copy email">
+            <i class="uil uil-envelope-alt contact_icon"></i>
+            <div>
+              <h3 class="contact_title">Email</h3>
+              <span class="contact_subtitle">2mail2mkhan@gmail.com</span>
+            </div>
+          </div>
 
-                    <a href="https://maps.app.goo.gl/cc5ibm6jAiXmRFp17" target="_blank">
-                        <div class="contact_info">
-                            <i class="uil uil-location-point contact_icon"></i>
-                            <div>
-                                <h3 class="contact_title">Location</h3>
-                                <span class="contact_subtitle">Banglore , India</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+          <a href="https://twitter.com/yemkhan" target="_blank" rel="noopener noreferrer">
+            <div class="contact_info">
+              <i class="uil uil-twitter-alt contact_icon"></i>
+              <div>
+                <h3 class="contact_title">Twitter</h3>
+                <span class="contact_subtitle">@yemkhan</span>
+              </div>
+            </div>
+          </a>
 
-                <form action="https://formspree.io/f/mleqjaor" class="contact_form grid" id="contact-form" method="POST">
-                    <div id="alert" class="alert_style"></div>
-                    <div class="contact_inputs grid">
-                        <div class="contact_content">
-                            <label class="contact_label">Name</label>
-                            <input type="text" name="name" class="contact_input" id="name" required>
-                        </div>
-                        <div class="contact_content">
-                            <label for="email" class="contact_label">Email</label>
-                            <input type="email" name="email" class="contact_input" id="email" required>
-                        </div>
-                    </div>
-                    <div class="contact_content">
-                        <label for="subject" class="contact_label">Subject</label>
-                        <input type="text" name="subject" class="contact_input" id="subject" required>
-                    </div>
-                    <div class="contact_content">
-                        <label for="message" class="contact_label">Message</label>
-                        <textarea name="message" id="" cols="0" rows="7" class="contact_input message" id="message" required></textarea>
-                    </div>
+          <a href="https://maps.app.goo.gl/cc5ibm6jAiXmRFp17" target="_blank" rel="noopener noreferrer">
+            <div class="contact_info">
+              <i class="uil uil-location-point contact_icon"></i>
+              <div>
+                <h3 class="contact_title">Location</h3>
+                <span class="contact_subtitle">Bangalore, India</span>
+              </div>
+            </div>
+          </a>
+        </div>
 
-                    <div>
-                        <button type="submit" class="button button-flex">
+        <form action="https://formspree.io/f/mleqjaor" class="contact_form grid" id="contact-form" method="POST">
+          <div id="alert" class="alert_style"></div>
+          <div class="contact_inputs grid">
+            <div class="contact_content">
+              <label for="name" class="contact_label">Name</label>
+              <input type="text" name="name" class="contact_input" id="name" required />
+            </div>
+            <div class="contact_content">
+              <label for="email" class="contact_label">Email</label>
+              <input type="email" name="email" class="contact_input" id="email" required />
+            </div>
+          </div>
+          <div class="contact_content">
+            <label for="subject" class="contact_label">Subject</label>
+            <input type="text" name="subject" class="contact_input" id="subject" required />
+          </div>
+          <div class="contact_content">
+            <label for="message" class="contact_label">Message</label>
+            <textarea name="message" id="message" cols="0" rows="7" class="contact_input message" required></textarea>
+          </div>
+          <div>
+            <button type="submit" class="button button--flex">
               Send Message
               <i class="uil uil-message button_icon"></i>
             </button>
-                    </div>
-                </form>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer_bg">
-            <div class="footer_container container grid">
-                <div>
-                    <h1 class="footer_title">Muzammil</h1>
-                </div>
-
-                <ul class="footer_links">
-                    <li>
-                        <a href="#about" class="footer_link">About</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="footer_link">Contact Me</a>
-                    </li>
-                </ul>
-
-                <div class="footer_socials">
-                    <a href="https://www.linkedin.com/in/yemkhan/" target="_blank" class="footer_social">
-                        <i class="uil uil-linkedin-alt"></i>
-
-<a href="https://www.github.com/yemkhan/" target="_blank" class="footer_social">
-                        <i class="uil uil-github-alt"></i>
-                        
-                    </a>
-                    <a href="https://twitter.com/yemkhan" target="_blank" class="footer_social">
-                        <i class="uil uil-twitter-alt"></i>
-                    </a>
-                    <a href="https://youtube.com/yem4k" target="_blank" class="footer_social">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.instagram.com/muzamm.l/" target="_blank" class="footer_social">
-                        <i class="uil uil-instagram"></i>
-                    </a>
-                    <a href="https://www.behance.net/muzammilkhan67" target="_blank" class="footer_social">
-                        <i class="uil uil-behance"></i>
-                    </a>
-                </div>
-            </div>
-
-            <p class="footer_copy">&#169; Muzammil Khan | 2026</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer_bg">
+      <div class="footer_container container grid">
+        <div>
+          <h1 class="footer_title">Muzammil</h1>
         </div>
-    </footer>
 
-    <!-- Scroll Top -->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup_icon"></i>
-    </a>
+        <ul class="footer_links">
+          <li><a href="#about" class="footer_link">About</a></li>
+          <li><a href="#contact" class="footer_link">Contact Me</a></li>
+        </ul>
 
-    <!-- Swiper JS -->
-    <script src="./assets/js/swiper-bundle.min.js"></script>
+        <div class="footer_socials">
+          <a href="https://www.linkedin.com/in/yemkhan/" target="_blank" rel="noopener noreferrer" class="footer_social" aria-label="LinkedIn">
+            <i class="uil uil-linkedin-alt"></i>
+          </a>
+          <a href="https://www.github.com/yemkhan/" target="_blank" rel="noopener noreferrer" class="footer_social" aria-label="GitHub">
+            <i class="uil uil-github-alt"></i>
+          </a>
+          <a href="https://twitter.com/yemkhan" target="_blank" rel="noopener noreferrer" class="footer_social" aria-label="Twitter">
+            <i class="uil uil-twitter-alt"></i>
+          </a>
+          <a href="https://youtube.com/yem4k" target="_blank" rel="noopener noreferrer" class="footer_social" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.instagram.com/muzamm.l/" target="_blank" rel="noopener noreferrer" class="footer_social" aria-label="Instagram">
+            <i class="uil uil-instagram"></i>
+          </a>
+          <a href="https://www.behance.net/muzammilkhan67" target="_blank" rel="noopener noreferrer" class="footer_social" aria-label="Behance">
+            <i class="uil uil-behance"></i>
+          </a>
+        </div>
+      </div>
 
-    <!-- Typed JS -->
-    <script src="./assets/js/typed.js"></script>
+      <p class="footer_copy">&#169; Muzammil Khan | 2026</p>
+    </div>
+  </footer>
 
-    <script src="./assets/js/main.js"></script>
+  <!-- Scroll Top -->
+  <a href="#" class="scrollup" id="scroll-up" aria-label="Scroll to top">
+    <i class="uil uil-arrow-up scrollup_icon"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="./assets/js/swiper-bundle.min.js" defer></script>
+  <script src="./assets/js/typed.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+
+  <!-- ===== INLINE FIXES & ENHANCEMENTS ===== -->
+  <script>
+    // ─── THEME TOGGLE (FIXED) ────────────────────────────────────────────
+    const themeBtn = document.getElementById('theme-button');
+    const DARK_CLASS = 'dark-theme';
+    const SUN_ICON   = 'uil-sun';
+    const MOON_ICON  = 'uil-moon';
+
+    // Restore saved preference
+    const savedTheme = localStorage.getItem('yem-theme');
+    const savedIcon  = localStorage.getItem('yem-icon');
+    if (savedTheme === 'dark') {
+      document.body.classList.add(DARK_CLASS);
+      themeBtn.classList.replace(MOON_ICON, SUN_ICON);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle(DARK_CLASS);
+      const isDark = document.body.classList.contains(DARK_CLASS);
+      themeBtn.classList.replace(isDark ? MOON_ICON : SUN_ICON, isDark ? SUN_ICON : MOON_ICON);
+      localStorage.setItem('yem-theme', isDark ? 'dark' : 'light');
+    });
+
+    // ─── ACTIVE NAV ON SCROLL (Intersection Observer) ───────────────────
+    const sections   = document.querySelectorAll('section[id]');
+    const navLinks   = document.querySelectorAll('.nav_link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active-link'));
+          const active = document.querySelector(`.nav_link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active-link');
+        }
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // ─── SCROLL REVEAL ANIMATION ─────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ─── COPY EMAIL TOAST ────────────────────────────────────────────────
+    const copyEmailBtn = document.getElementById('copy-email');
+    const toast        = document.getElementById('toast');
+
+    copyEmailBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('2mail2mkhan@gmail.com').then(() => {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    });
+  </script>
+
 </body>
-
 </html>
