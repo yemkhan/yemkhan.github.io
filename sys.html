@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>System Cache</title>
+<style>
+  :root{--bg:#0a0a0c;--card:#141418;--ink:#f2f2f5;--muted:#7a7a82;--accent:#ff3b30;--border:#23232a}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",sans-serif}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;padding:20px 16px 40px}
+  .wrap{width:100%;max-width:520px;margin:0 auto}
+
+  /* Gate */
+  .gate{margin-top:18vh}
+  .gate .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;box-shadow:0 30px 80px -10px rgba(0,0,0,.7)}
+  .gate h1{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;text-align:center}
+  .gate .sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:22px}
+  .pin{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+  .pin input{width:38px;height:48px;text-align:center;background:#0b0b0e;color:var(--ink);
+    border:1px solid var(--border);border-radius:10px;font-size:18px;font-weight:600;-moz-appearance:textfield}
+  .pin input::-webkit-outer-spin-button,.pin input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .pin input:focus{outline:none;border-color:var(--accent)}
+  .err{color:var(--accent);font-size:12px;text-align:center;min-height:16px;letter-spacing:.1em}
+
+  /* Vault */
+  .vault{display:none}
+  .topbar{display:flex;gap:10px;margin-bottom:18px}
+  .pill{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+    background:#16161b;border:1px solid var(--border);color:var(--ink);
+    border-radius:999px;padding:14px 18px;font-size:12px;letter-spacing:.25em;
+    text-transform:uppercase;font-weight:600;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+  .pill:hover{transform:translateY(-1px)}
+  .pill.exit{background:#f5f5f7;color:#0a0a0c;border-color:#f5f5f7}
+
+  .tag{display:inline-block;font-size:11px;letter-spacing:.3em;color:var(--muted);
+    background:#15151a;padding:4px 10px;border-radius:6px;margin-bottom:10px}
+  h2.title{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
+  h2.title .hl{background:#1a1a20;padding:0 6px;border-radius:4px}
+  .lede{color:#c9c9d1;font-size:14px;background:#15151a;padding:4px 8px;border-radius:6px;display:inline-block;margin-bottom:22px}
+
+  .list{display:flex;flex-direction:column;gap:12px}
+  .contact{display:flex;align-items:center;justify-content:space-between;
+    background:var(--card);border:1px solid var(--border);border-radius:18px;
+    padding:18px 20px;text-decoration:none;color:var(--ink);transition:border .2s,transform .2s}
+  .contact:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .contact .meta .name{font-weight:700;font-size:20px;letter-spacing:-.01em;background:#1a1a20;padding:0 4px;border-radius:4px;display:inline-block}
+  .contact .meta .num{display:block;margin-top:8px;font-size:14px;color:#c9c9d1;background:#15151a;padding:2px 6px;border-radius:4px;letter-spacing:.02em}
+  .ico{width:44px;height:44px;border-radius:10px;background:#1c1c22;display:grid;place-items:center;flex-shrink:0;margin-left:14px;color:#cfcfd6}
+  .ico svg{width:22px;height:22px;fill:currentColor}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="gate" id="gate">
+    <div class="card">
+      <h1>● Restricted</h1>
+      <p class="sub">Enter XXX-XXX to continue</p>
+      <div class="pin" id="pinRow">
+        <input type="password" inputmode="numeric" maxlength="1" />
+        <input type="password" inputmode="numeric" maxlength="1" />
+        <input type="password" inputmode="numeric" maxlength="1" />
+        <input type="password" inputmode="numeric" maxlength="1" />
+        <input type="password" inputmode="numeric" maxlength="1" />
+        <input type="password" inputmode="numeric" maxlength="1" />
+      </div>
+      <p class="err" id="err">&nbsp;</p>
+    </div>
+  </div>
+
+  <div class="vault" id="vault">
+    <div class="topbar">
+      <a class="pill" href="/">&larr; Home</a>
+      <a class="pill exit" href="#" id="lockBtn">🔒 Lock & Exit</a>
+    </div>
+    <span class="tag">/ EMERGENCY</span>
+    <h2 class="title"><span class="hl">muzammil Batman mode</span></h2>
+    <p class="lede">Tap any card to call. Page auto-locks &amp; returns home after dialing.</p>
+    <div class="list" id="contacts"></div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  // XOR + base64 obfuscated entries. Format: "Name|+CC NNNNN NNNNN".
+  // Key length XXX-XXX. Decoding happens client-side only after correct key.
+  var ENC = [
+    "dU1CUV1dUVREGwkBGAAJAwkIGAgKBAkC",
+    "a1BZYFFZRBMBARAJCAsPBRAHCwsBAg==",
+    "a1BdWFleGHNzUUwbAQkYCQYDCw0YBwMDAQo=",
+    "c01WWlFcUUFZXkwbDAEYAQYCGA4ICAYGAAs=",
+    "a01MREVMEwEJEAcJCA8IEAECCQsK",
+    "dVdWWUwbAQkYCAEDAQAYAgAFCQk=",
+    "bFBZWFVCRBMBARAIAQAIBhAFCgsMAg==",
+    "eVNZSUwbAQkYCAkICA4YBQIDDAo=",
+    "bFBXXllMEwEJEAcJCAEKEAEIDQwI",
+    "dlFBUUNMEwEJEAcACwwIEAcJAQ4I",
+    "aldVSRBla2xEGwkBGAAJAAUIGAkNAQAJ"
+  ];
+
+  function xor(s,k){var o="";for(var i=0;i<s.length;i++)o+=String.fromCharCode(s.charCodeAt(i)^k.charCodeAt(i%k.length));return o;}
+  function decode(e,k){try{return xor(atob(e),k);}catch(_){return "";}}
+
+  var PHONE_SVG = '<svg viewBox="0 0 24 24"><path d="M19.23 15.26l-2.54-.29a1.99 1.99 0 0 0-1.64.57l-1.84 1.84a15.05 15.05 0 0 1-6.59-6.59l1.85-1.85a2 2 0 0 0 .57-1.64L8.75 4.78A2 2 0 0 0 6.77 3H3.32A1.32 1.32 0 0 0 2 4.38C2.36 13.6 9.79 21 19.01 21.4a1.32 1.32 0 0 0 1.39-1.32V16.7c0-1.03-.78-1.9-1.81-2.04z"/></svg>';
+
+  var inputs = document.querySelectorAll('#pinRow input');
+  var err = document.getElementById('err');
+  inputs.forEach(function(inp, idx){
+    inp.addEventListener('input', function(){
+      inp.value = inp.value.replace(/\D/g,'').slice(0,1);
+      if(inp.value && idx < inputs.length-1) inputs[idx+1].focus();
+      tryUnlock();
+    });
+    inp.addEventListener('keydown', function(e){
+      if(e.key === 'Backspace' && !inp.value && idx>0) inputs[idx-1].focus();
+    });
+  });
+  inputs[0].focus();
+
+  function tryUnlock(){
+    var pin = Array.from(inputs).map(function(i){return i.value}).join('');
+    if(pin.length < 6) { err.textContent = ''; return; }
+    var first = decode(ENC[0], pin);
+    if(first.indexOf('|') === -1){
+      err.textContent = '\u2717 Wrong key';
+      inputs.forEach(function(i){i.value=''}); inputs[0].focus();
+      return;
+    }
+    var vault = document.getElementById('vault');
+    var gate = document.getElementById('gate');
+    var box = document.getElementById('contacts');
+    box.innerHTML='';
+    ENC.forEach(function(enc){
+      var p = decode(enc, pin);
+      var parts = p.split('|');
+      if(parts.length === 2){
+        var a = document.createElement('a');
+        a.className = 'contact';
+        a.href = 'tel:' + parts[1].replace(/\s/g,'');
+        a.innerHTML =
+          '<div class="meta"><span class="name">'+parts[0]+'</span>'+
+          '<span class="num">'+parts[1]+'</span></div>'+
+          '<span class="ico">'+PHONE_SVG+'</span>';
+        a.addEventListener('click', function(){
+          // Auto-lock & return home after a short delay so the dialer launches first.
+          setTimeout(function(){ location.href = '/'; }, 1200);
+        });
+        box.appendChild(a);
+      }
+    });
+    gate.style.display='none';
+    vault.style.display='block';
+  }
+
+  document.getElementById('lockBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    location.href = '/';
+  });
+})();
+</script>
+</body>
+</html>
