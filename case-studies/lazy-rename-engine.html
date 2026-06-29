@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lazy Rename Engine™ — Case Study · Muzammil Khan</title>
+<meta name="description" content="An After Effects ScriptUI panel that batch-generates and applies render-ready comp names for mobile game ad creatives." />
+<meta property="og:title" content="Lazy Rename Engine™ — Case Study" />
+<meta property="og:description" content="An After Effects ScriptUI panel that batch-generates and applies render-ready comp names for mobile game ad creatives." />
+<meta property="og:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<meta name="twitter:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<link rel="icon" href="../assets/img/favicon.ico" />
+<link rel="stylesheet" href="../assets/css/case-study.css" />
+</head>
+<body>
+
+
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-brand" href="../index.html">MK<span class="dot">.</span></a>
+    <div class="cs-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../casestudy.html">Case Studies</a>
+    </div>
+  </div>
+</nav>
+
+
+<header class="cs-wrap cs-hero">
+  <a class="cs-back-link" href="../casestudy.html">← Case Studies</a>
+
+  <div class="cs-badge-row">
+    <svg viewBox="0 0 64 64" width="56" height="56" aria-label="After Effects">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#00005B"/>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display'" font-weight="700" font-size="28" fill="#D8A0FF">Ae</text>
+    </svg>
+    <div>
+      <p class="cs-eyebrow">After Effects · ExtendScript · UI Panel</p>
+      <p class="cs-meta">2025 · 7 min read</p>
+      <p class="cs-emp">Built while employed at <a href="https://www.kwalee.com/" target="_blank" rel="noreferrer">Kwalee</a></p>
+    </div>
+  </div>
+
+  <h1 class="cs-title">Lazy Rename Engine™</h1>
+  <p class="cs-summary">A one-panel After Effects script that turns naming hundreds of game-ad comps into a fill-four-fields-and-go ritual — with per-row Copy and Replace controls.</p>
+  <p class="cs-built-note">Built while employed at <a href="https://www.kwalee.com/" target="_blank" rel="noreferrer">Kwalee</a> as a motion designer, to help the team's workflow.</p>
+
+  <div class="cs-cta-row">
+    <a class="cs-btn-dark" href="https://github.com/yemkhan/Batch-name-generator" target="_blank" rel="noreferrer">View on GitHub →</a>
+    <a class="cs-btn-ghost" href="#try-it">Try the panel ↓</a>
+  </div>
+</header>
+
+<section class="cs-wrap">
+  <div class="cs-stats">
+    <div class="cs-stat"><p class="cs-stat-v">6+</p><p class="cs-stat-k">Hours saved / week</p></div>
+    <div class="cs-stat"><p class="cs-stat-v">9</p><p class="cs-stat-k">Fields to fill</p></div>
+    <div class="cs-stat"><p class="cs-stat-v">0</p><p class="cs-stat-k">Naming errors</p></div>
+    <div class="cs-stat"><p class="cs-stat-v">v1 → v5</p><p class="cs-stat-k">Script versions</p></div>
+  </div>
+</section>
+
+<article class="cs-wrap cs-article">
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">01</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The problem</p>
+      <h2 class="cs-section-title">Naming game ads is its own full-time job.</h2>
+      <div class="cs-section-body">
+        <p>Mobile game ad creatives live and die by their filenames. When comps get saved as <span class="cs-em">final.mp4</span>, <span class="cs-em">final_v2.mp4</span>, <span class="cs-em">FINAL_real.mp4</span>, <span class="cs-em">ultra_final_USE_THIS.mp4</span>, two things break at once. <span class="cs-u">Meta's algorithm starts treating near-duplicate creatives as the same asset</span> — impressions and clicks pile onto whichever variant the system picked first, and the rest of the batch silently dies. Worse, when a creative actually performs and you want to iterate on it, <span class="cs-u">there is no way to trace the file back to the artist, the campaign, or the source project</span>. You're left scrolling a Finder full of <span class="cs-em">auto-save 47.mp4</span> trying to guess which one shipped.</p>
+
+        <figure class="cs-finder" id="finderChaos">
+          <div class="cs-finder-bar">
+            <div class="cs-finder-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <p class="cs-finder-title">📁 Project — without Lazy Rename Engine</p>
+          </div>
+          <div class="cs-finder-head"><span>Name</span><span>Kind</span></div>
+          <div class="cs-finder-list">
+            <div class="cs-finder-track" id="chaosTrack"></div>
+            <div class="cs-finder-fade-top"></div><div class="cs-finder-fade-bot"></div>
+          </div>
+          <p class="cs-finder-cap">Real Finder, real chaos. Every <code>final_v2_REAL.mp4</code> is a creative no one can trace back to its artist, campaign, or source.</p>
+        </figure>
+
+        <p>The pain wasn't the convention itself — it was applying it. I'd sit inside After Effects double-clicking comp names one by one, retyping the same six-segment string twenty times, fat-fingering an underscore, and then re-rendering because the queue exported a typo. Multiply that by a busy week and <span class="cs-u">the naming step alone was eating half a day</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">02</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The insight</p>
+      <h2 class="cs-section-title">The names follow a formula. Formulas are scripts.</h2>
+      <div class="cs-section-body">
+        <p>Every name I was typing by hand was just structured fields glued together with underscores: a <span class="cs-u">game code</span>, an incrementing <span class="cs-u">serial number</span>, an <span class="cs-u">artist initial</span>, a <span class="cs-u">project sub-name + concept colorway</span>, the <span class="cs-u">motion + level</span>, and an <span class="cs-u">aspect-ratio suffix</span>. If a human could produce the string by reading those fields, an ExtendScript could produce it faster — and never typo. Render the file as <span class="cs-mono">MI_520_MK_Stargazer-Red_Motion-Lv2_1080x1920_30s</span> and suddenly every downstream system — Meta, the render sheet, the artist lookup — knows exactly what it's looking at.</p>
+      </div>
+    </div>
+  </section>
+
+  <figure class="cs-anatomy">
+    <p class="cs-anatomy-tag">/ Anatomy of a name</p>
+    <div class="cs-anatomy-row">
+      <span class="cs-tok" style="background:#0071e3">MI</span><span class="cs-sep">_</span>
+      <span class="cs-tok" style="background:#1d1d1f">520</span><span class="cs-sep">_</span>
+      <span class="cs-tok" style="background:#0071e3">MK</span><span class="cs-sep">_</span>
+      <span class="cs-tok" style="background:#1d1d1f">Stargazer-Red</span><span class="cs-sep">_</span>
+      <span class="cs-tok" style="background:#0071e3">Motion-Lv2</span><span class="cs-sep">_</span>
+      <span class="cs-tok" style="background:#1d1d1f">1080x1920_30s</span>
+    </div>
+    <div class="cs-anatomy-legend">
+      <span><i class="cs-swatch" style="background:#0071e3"></i>Game</span>
+      <span><i class="cs-swatch" style="background:#1d1d1f"></i>Serial #</span>
+      <span><i class="cs-swatch" style="background:#0071e3"></i>Artist</span>
+      <span><i class="cs-swatch" style="background:#1d1d1f"></i>Sub-Concept</span>
+      <span><i class="cs-swatch" style="background:#0071e3"></i>Motion-Level</span>
+      <span><i class="cs-swatch" style="background:#1d1d1f"></i>Suffix</span>
+    </div>
+  </figure>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">03</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The build</p>
+      <h2 class="cs-section-title">One panel. Nine fields. Per-row Copy and Replace.</h2>
+      <div class="cs-section-body">
+        <p>I wrote <span class="cs-mono">Lazy Rename Engine™</span> as a single ExtendScript file that opens a ScriptUI panel inside After Effects. You fill the fields once, hit <span class="cs-mono">Generate Names</span>, and the panel lists every output line with its own <span class="cs-mono">Copy</span> and <span class="cs-mono">Replace</span> button — copy to paste into a render sheet, or replace to rewrite the corresponding CompItem in place.</p>
+        <p>The smart bit is the serial range: the panel reads a start and an end serial number and grows the Concept inputs to match the count. Set <span class="cs-mono">520 → 523</span> and you get four concept slots; bump the end to <span class="cs-mono">527</span> and four more appear without re-opening the panel.</p>
+        <ul class="cs-list">
+          <li><span class="bullet"></span><p><strong>Dynamic concept slots.</strong> endSerial − startSerial + 1 drives how many Concept fields render. No fixed cap.</p></li>
+          <li><span class="bullet"></span><p><strong>Suffix presets + custom override.</strong> vert30, vert15, square, FB 1080×1350, landscape — or type your own resolution-duration string.</p></li>
+          <li><span class="bullet"></span><p><strong>Per-row Copy.</strong> Each generated name has its own Copy button, so a single row can feed a single render entry without touching the others.</p></li>
+          <li><span class="bullet"></span><p><strong>Per-row Replace.</strong> Replace walks the project, finds the matching CompItem (by index or selection) and rewrites .name in place — wrapped in an undo group, so one Cmd+Z reverts the whole batch.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div id="try-it" style="scroll-margin-top:80px">
+    <p class="cs-section-kicker">/ Try it · live</p>
+    <h2 class="cs-section-title">The actual panel, rebuilt in your browser.</h2>
+    <p style="margin-top:16px;font-size:17px;line-height:1.7;color:rgba(29,29,31,.8)">Edit any field. The output list and concept slots update live. Hit <span class="cs-mono">Copy</span> on any row to grab a single name; the big button copies all of them at once.</p>
+
+    <figure class="cs-demo">
+      <div class="cs-demo-bar">
+        <div class="cs-finder-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+        <p class="cs-demo-title">Lazy Rename Engine™</p>
+      </div>
+      <div class="cs-demo-body">
+        <div class="cs-demo-fields">
+          <label><span class="cs-demo-field-label">Game Name</span><input class="cs-demo-input" id="d-game" value="MI"/></label>
+          <div class="cs-demo-grid2">
+            <label><span class="cs-demo-field-label">Starting Serial #</span><input class="cs-demo-input" id="d-start" type="number" value="520"/></label>
+            <label><span class="cs-demo-field-label">Ending Serial #</span><input class="cs-demo-input" id="d-end" type="number" value="523"/></label>
+          </div>
+          <label><span class="cs-demo-field-label">Artist Name</span><input class="cs-demo-input" id="d-artist" value="MK"/></label>
+          <label><span class="cs-demo-field-label">Project Sub-Name</span><input class="cs-demo-input" id="d-sub" value="Stargazer"/></label>
+          <div class="cs-demo-grid2">
+            <label><span class="cs-demo-field-label">Motion</span><input class="cs-demo-input" id="d-motion" value="Motion"/></label>
+            <label><span class="cs-demo-field-label">Level</span><input class="cs-demo-input" id="d-level" value="Lv2"/></label>
+          </div>
+          <div class="cs-demo-concepts">
+            <p class="cs-demo-field-label" id="d-concept-count">Concepts (4)</p>
+            <div class="cs-demo-grid2" id="d-concepts"></div>
+          </div>
+          <label><span class="cs-demo-field-label">Suffix</span>
+            <select class="cs-demo-select" id="d-suffix">
+              <option value="1080x1920_30s">vert30 (1080×1920_30s)</option>
+              <option value="1080x1920_15s">vert15 (1080×1920_15s)</option>
+              <option value="1080x1350_30s">fb (1080×1350_30s)</option>
+              <option value="1080x1080_30s">square (1080×1080_30s)</option>
+              <option value="1920x1080_30s">land (1920×1080_30s)</option>
+              <option value="__custom__">Custom…</option>
+            </select>
+          </label>
+          <label><span class="cs-demo-field-label">Custom Suffix</span><input class="cs-demo-input" id="d-custom" value="1080x1920_30s" disabled/></label>
+        </div>
+        <div class="cs-demo-output">
+          <p class="cs-demo-out-head" id="d-out-head">Generated names · 4</p>
+          <div class="cs-demo-list" id="d-list"></div>
+          <button type="button" class="cs-demo-copyall" id="d-copyall">Generate Names · Copy All</button>
+        </div>
+      </div>
+      <figcaption class="cs-demo-cap">Live demo — try it. The real ScriptUI panel runs inside After Effects with <span style="font-family:monospace;color:rgba(255,255,255,.8)">Replace</span> wired straight into the active project's CompItems.</figcaption>
+    </figure>
+  </div>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">04</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The output</p>
+      <h2 class="cs-section-title">One name per serial, ready to render.</h2>
+      <div class="cs-section-body">
+        <p>Once names are generated, the workflow forks. Most days I hit <span class="cs-mono">Replace</span> on each row so the comps themselves get renamed — then the After Effects render queue (or Adobe Media Encoder) inherits the new names automatically, and the MP4s land on disk already matching the convention. No filesystem rename pass. No spreadsheet reconciliation.</p>
+
+        <figure class="cs-finder cs-finder-clean" id="finderClean">
+          <div class="cs-finder-bar">
+            <div class="cs-finder-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <p class="cs-finder-title">📁 Project — with Lazy Rename Engine™</p>
+            <span class="cs-finder-tag">Clean</span>
+          </div>
+          <div class="cs-finder-head" style="color:rgba(0,0,0,.5);background:rgba(0,0,0,.03);border-bottom-color:rgba(0,0,0,.1)"><span>Name</span><span>Kind</span></div>
+          <div class="cs-finder-list">
+            <div class="cs-finder-track" id="cleanTrack"></div>
+            <div class="cs-finder-fade-top"></div><div class="cs-finder-fade-bot"></div>
+          </div>
+          <p class="cs-finder-cap">Same folder, after one click. <code>RB_520 → RB_531</code> — every name traceable to game, serial, artist, concept, motion level, and aspect ratio.</p>
+        </figure>
+
+        <figure class="cs-figure">
+          <svg viewBox="0 0 720 140" role="img" aria-label="Render path">
+            <defs><marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d1d1f"/></marker></defs>
+            <rect x="20" y="40" width="180" height="60" rx="12" fill="#1d1d1f"/>
+            <text x="110" y="76" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Renamed comps</text>
+            <line x1="205" y1="70" x2="285" y2="40" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow2)"/>
+            <line x1="205" y1="70" x2="285" y2="100" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow2)"/>
+            <rect x="295" y="10" width="200" height="50" rx="12" fill="#fff" stroke="#1d1d1f"/>
+            <text x="395" y="40" text-anchor="middle" font-size="13" font-weight="600" fill="#1d1d1f">AE Render Queue</text>
+            <rect x="295" y="80" width="200" height="50" rx="12" fill="#fff" stroke="#1d1d1f"/>
+            <text x="395" y="110" text-anchor="middle" font-size="13" font-weight="600" fill="#1d1d1f">Adobe Media Encoder</text>
+            <line x1="500" y1="35" x2="560" y2="65" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow2)"/>
+            <line x1="500" y1="105" x2="560" y2="75" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow2)"/>
+            <rect x="565" y="40" width="135" height="60" rx="12" fill="#ff6b1a"/>
+            <text x="632" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">MP4s named</text>
+            <text x="632" y="86" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">correctly</text>
+          </svg>
+          <p class="cs-figcap">Render with either tool — the filename comes from the comp.</p>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">05</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The outcome</p>
+      <h2 class="cs-section-title">Boring work, automated. Boring work, done.</h2>
+      <div class="cs-section-body">
+        <p>The first time I ran v5 on a real campaign, fifty-two comps got renamed in under a second. The rest of the afternoon I spent on actual motion design instead of shepherding underscores. That's the whole pitch.</p>
+        <p>The script is open source — pull it, fork the field layout to match your studio's convention, and stop typing the same string twenty times.</p>
+
+        <div class="cs-outcome">
+          <p class="cs-outcome-tag">/ Grab the script</p>
+          <h3>Lazy Rename Engine™</h3>
+          <p>Drop the <span class="cs-mono-dark">.jsx</span> into your After Effects ScriptUI Panels folder, dock the panel, and let the four-field-plus-concepts ritual do the rest.</p>
+          <div class="cs-outcome-cta">
+            <a class="cs-btn-light" href="https://github.com/yemkhan/Batch-name-generator" target="_blank" rel="noreferrer">Grab on GitHub →</a>
+            <a class="cs-btn-link" href="../casestudy.html">← More case studies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
+
+<footer class="cs-foot">
+  <div class="cs-foot-inner">
+    <span>© 2026 Muzammil Khan</span>
+    <a href="../casestudy.html">← All case studies</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // --- Chaos / Clean Finder scrolling lists ---
+  var CHAOS = ["final.mp4","final_v2.mp4","final_v2_REAL.mp4","FINAL_USE_THIS.mp4","ultra_final.mp4","ultra_final_FIXED.mp4","deskFlex.mp4","deskFlex auto-save 1.mp4","deskFlex auto-save 2.mp4","deskFlex auto-save 7.mp4","deskFlex auto-save 8.mp4","deskFlex auto-save 9.mp4","deskFlex auto-save 10.mp4","deskFlex auto-save 11.mp4","Gemini auto-save 50.mp4","RedBird_test.mp4","RedBird_test_2.mp4","RedBird_FINAL_real_USE.mp4","untitled.mp4","untitled 2.mp4","asdf.mp4","client_pls_review.mp4","client_pls_review_v3.mp4","Stargazer_idk.mp4","Stargazer_idk_FINAL.mp4","MI_lvl2_motion_???.mp4","do_not_delete.mp4","do_not_delete_v2.mp4"];
+  var CLEAN = ["RB_520_MK_Stargazer-Idea1_Motion-Lv2_1080x1920_30s.mp4","RB_521_MK_Stargazer-Idea2_Motion-Lv2_1080x1920_30s.mp4","RB_522_MK_Stargazer-Idea3_Motion-Lv2_1080x1920_30s.mp4","RB_523_MK_Stargazer-Idea4_Motion-Lv2_1080x1920_30s.mp4","RB_524_MK_Stargazer-Idea5_Motion-Lv2_1080x1920_30s.mp4","RB_525_MK_Stargazer-Idea6_Motion-Lv2_1080x1920_30s.mp4","RB_526_MK_Nebula-Red_Motion-Lv2_1080x1920_30s.mp4","RB_527_MK_Nebula-Blue_Motion-Lv2_1080x1920_30s.mp4","RB_528_MK_Nebula-Gold_Motion-Lv2_1080x1920_30s.mp4","RB_529_MK_Comet-Trail_Motion-Lv3_1080x1350_15s.mp4","RB_530_MK_Comet-Trail_Motion-Lv3_1080x1080_15s.mp4","RB_531_MK_Comet-Trail_Motion-Lv3_1920x1080_15s.mp4"];
+  var ICO = '<svg viewBox="0 0 24 24" width="18" height="18" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="4" fill="#1f6feb"/><path d="M9 8.2v7.6a.6.6 0 0 0 .92.51l6.2-3.8a.6.6 0 0 0 0-1.02l-6.2-3.8A.6.6 0 0 0 9 8.2z" fill="#fff"/></svg>';
+  function buildTrack(id, names, dur){
+    var t = document.getElementById(id); if(!t) return;
+    var loop = names.concat(names);
+    t.innerHTML = loop.map(function(n){ return '<div class="cs-finder-row"><span class="name">'+ICO+'<span>'+n+'</span></span><span class="kind">MPEG-4 movie</span></div>'; }).join('');
+    var cycle = -(names.length * 30);
+    t.style.setProperty('--cycle', cycle + 'px');
+    t.style.animation = 'csFinderScroll '+dur+'s linear infinite';
+  }
+  buildTrack('chaosTrack', CHAOS, 22);
+  buildTrack('cleanTrack', CLEAN, 26);
+
+  // --- Live Rename demo ---
+  var $ = function(id){ return document.getElementById(id); };
+  var concepts = ['Red','Yellow','Pink','Blue'];
+
+  function getCount(){
+    var s = parseInt($('d-start').value||'0',10)||0;
+    var e = parseInt($('d-end').value||'0',10)||0;
+    return Math.max(0, e - s + 1);
+  }
+  function renderConcepts(){
+    var c = getCount();
+    while(concepts.length < c) concepts.push('');
+    concepts = concepts.slice(0, c);
+    var box = $('d-concepts'); box.innerHTML='';
+    concepts.forEach(function(v,i){
+      var lab = document.createElement('label');
+      lab.innerHTML = '<span class="cs-demo-field-label">Concept '+(i+1)+'</span>';
+      var inp = document.createElement('input'); inp.className='cs-demo-input'; inp.value=v;
+      inp.style.padding='6px 12px'; inp.style.fontSize='13px';
+      inp.addEventListener('input', function(){ concepts[i]=inp.value; renderNames(); });
+      lab.appendChild(inp); box.appendChild(lab);
+    });
+    $('d-concept-count').textContent = 'Concepts ('+c+')';
+  }
+  function suffix(){
+    var v = $('d-suffix').value;
+    var custom = $('d-custom');
+    custom.disabled = v !== '__custom__';
+    return v === '__custom__' ? custom.value : v;
+  }
+  function renderNames(){
+    var c = getCount();
+    var s = parseInt($('d-start').value||'0',10)||0;
+    var game = $('d-game').value, artist = $('d-artist').value, sub = $('d-sub').value;
+    var mo = $('d-motion').value, lv = $('d-level').value, sx = suffix();
+    var names = [];
+    for(var i=0;i<c;i++){
+      var concept = concepts[i] || ('C'+(i+1));
+      names.push([game,(s+i),artist,sub+'-'+concept,mo+'-'+lv,sx].filter(Boolean).join('_'));
+    }
+    $('d-out-head').textContent = 'Generated names · ' + names.length;
+    var list = $('d-list');
+    if(!names.length){ list.innerHTML = '<p class="cs-demo-row-empty">Set a valid serial range to generate names.</p>'; return; }
+    list.innerHTML = names.map(function(n,i){
+      return '<div class="cs-demo-row"><code>'+n+'</code><button type="button" data-copy="'+i+'">Copy</button><button type="button" title="Replaces a CompItem in After Effects">Replace</button></div>';
+    }).join('');
+    list.querySelectorAll('button[data-copy]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var idx = parseInt(b.getAttribute('data-copy'),10);
+        navigator.clipboard && navigator.clipboard.writeText(names[idx]);
+        var t = b.textContent; b.textContent='Copied'; setTimeout(function(){b.textContent=t;},1200);
+      });
+    });
+    window._csNames = names;
+  }
+  ['d-game','d-start','d-end','d-artist','d-sub','d-motion','d-level','d-suffix','d-custom'].forEach(function(id){
+    $(id).addEventListener('input', function(){
+      if(id==='d-start'||id==='d-end') renderConcepts();
+      renderNames();
+    });
+    $(id).addEventListener('change', function(){ renderNames(); });
+  });
+  $('d-copyall').addEventListener('click', function(){
+    var n = window._csNames || []; if(!n.length) return;
+    navigator.clipboard && navigator.clipboard.writeText(n.join('\n'));
+    var t = $('d-copyall').textContent; $('d-copyall').textContent='Copied all '+n.length+' names'; setTimeout(function(){$('d-copyall').textContent=t;},1400);
+  });
+  renderConcepts(); renderNames();
+})();
+</script>
+<div id="pageFade" class="page-fade" aria-hidden="true"></div>
+<script>
+(function(){
+  var fade=document.getElementById("pageFade");
+  if(!fade)return;
+  requestAnimationFrame(function(){fade.classList.add("in");requestAnimationFrame(function(){fade.classList.remove("in");});});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+    var h=a.getAttribute("href");
+    if(!h||h.startsWith("#")||h.startsWith("mailto:")||h.startsWith("tel:"))return;
+    if(a.target==="_blank"||a.hasAttribute("download"))return;
+    if(/^https?:/i.test(h)&&!h.includes(location.host))return;
+    if(!/\.html(\?|#|$)/i.test(h)&&h!=="/")return;
+    e.preventDefault();fade.classList.add("in");
+    setTimeout(function(){window.location.href=h;},480);
+  });
+})();
+</script>
+</body>
+</html>

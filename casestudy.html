@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Case Studies — Muzammil Khan</title>
+<meta name="description" content="Case studies from Muzammil Khan — tools, motion systems, and game UI workflows built across Kwalee, Ruby Seven, and UST." />
+<meta property="og:title" content="Case Studies — Muzammil Khan" />
+<meta property="og:description" content="Tools, motion systems, and game UI workflows built across Kwalee, Ruby Seven, and UST." />
+<meta property="og:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<meta name="twitter:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="assets/img/favicon.ico" />
+<link rel="stylesheet" href="assets/css/case-study.css" />
+</head>
+<body>
+
+<a class="cs-backhome" href="index.html" aria-label="Back to home" title="Back to home">
+  <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+</a>
+
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-brand" href="index.html">MK<span class="dot">.</span></a>
+    <div class="cs-nav-links">
+      <a href="index.html">Home</a>
+      <a href="casestudy.html">Case Studies</a>
+    </div>
+  </div>
+</nav>
+
+
+<header class="cs-wrap cs-index-hero cs-index-hero-pushed">
+  <p class="cs-eyebrow">/ Case Studies</p>
+  <h1>The work, written down.</h1>
+  <p>Four projects across motion tooling, game UI, and interactive web animation — each one solving a specific workflow pain I kept running into on the job.</p>
+</header>
+
+<section class="cs-wrap">
+  <div class="cs-grid">
+
+    <a class="cs-card" href="case-studies/json-ui-previewer.html">
+      <div class="cs-card-thumb"><img src="assets/img/case-studies/jsonui-previewer.png" alt="JSON UI Previewer thumbnail" loading="lazy"/></div>
+      <p class="cs-card-eyebrow">Tooling · React · Game UI</p>
+      <h2>JSON UI Previewer</h2>
+      <p>A previewer that takes the JSON (or plist) a designer exports from Photoshop and re-renders the entire game UI in the browser — sprite-accurate, interactable, multi-screen.</p>
+      <span class="cs-card-go">Read case study →</span>
+    </a>
+
+    <a class="cs-card" href="case-studies/lazy-rename-engine.html">
+      <div class="cs-card-thumb"><img src="assets/img/case-studies/aescript-thumb.png" alt="Lazy Rename Engine thumbnail" loading="lazy"/></div>
+      <p class="cs-card-eyebrow">After Effects · ExtendScript · UI Panel</p>
+      <h2>Lazy Rename Engine™</h2>
+      <p>A one-panel After Effects script that turns naming hundreds of game-ad comps into a fill-four-fields-and-go ritual — with per-row Copy and Replace controls.</p>
+      <span class="cs-card-go">Read case study →</span>
+    </a>
+
+    <a class="cs-card" href="case-studies/game-creatives.html">
+      <div class="cs-card-thumb"><img src="assets/img/case-studies/game-creatives.png" alt="Game creatives thumbnail placeholder" loading="lazy" onerror="this.hidden=true"/></div>
+      <p class="cs-card-eyebrow">Game Ads · Motion · Creative</p>
+      <h2>Game Creatives — Kwalee · Zynga · Voodoo · TapNation</h2>
+      <p>Performance creatives shipped for three of the largest mobile game publishers. Concept, motion, and craft, condensed into 15-second hooks.</p>
+      <span class="cs-card-go">Read case study →</span>
+    </a>
+
+    <a class="cs-card" href="case-studies/lottie-motion.html">
+      <div class="cs-card-thumb"><img src="assets/img/case-studies/lottie-motion.png" alt="Lottie interaction thumbnail placeholder" loading="lazy" onerror="this.hidden=true"/></div>
+      <p class="cs-card-eyebrow">After Effects → Lottie · Web Motion</p>
+      <h2>After Effects → Lottie Interaction Design</h2>
+      <p>Animating motion states in After Effects, exporting through Lottie, and wiring them into interactive web components — micro-motion as a real design surface.</p>
+      <span class="cs-card-go">Read case study →</span>
+    </a>
+
+  </div>
+</section>
+
+<footer class="cs-foot">
+  <div class="cs-foot-inner">
+
+
+
+<div class="cs-index-bg" aria-hidden="true">
+  <img src="assets/img/case-studies/casestudyheader.gif" alt="" onerror="this.style.display='none'"/>
+</div>
+
+
+
+    <span>© 2026 Muzammil Khan</span>
+    <a href="index.html">← Back to portfolio</a>
+  </div>
+</footer>
+
+<div id="pageFade" class="page-fade" aria-hidden="true"></div>
+<script>
+(function(){
+  var fade=document.getElementById("pageFade");
+  if(!fade)return;
+  requestAnimationFrame(function(){fade.classList.add("in");requestAnimationFrame(function(){fade.classList.remove("in");});});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+    var h=a.getAttribute("href");
+    if(!h||h.startsWith("#")||h.startsWith("mailto:")||h.startsWith("tel:"))return;
+    if(a.target==="_blank"||a.hasAttribute("download"))return;
+    if(/^https?:/i.test(h)&&!h.includes(location.host))return;
+    if(!/\.html(\?|#|$)/i.test(h)&&h!=="/")return;
+    e.preventDefault();fade.classList.add("in");
+    setTimeout(function(){window.location.href=h;},480);
+  });
+})();
+</script>
+</body>
+</html>

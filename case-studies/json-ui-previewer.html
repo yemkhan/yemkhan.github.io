@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JSON UI Previewer — Case Study · Muzammil Khan</title>
+<meta name="description" content="A React tool that reconstructs Photoshop-exported game UIs from JSON/plist + texture atlases, with interactable buttons, orientation toggle, drag-to-edit and multi-screen sessions." />
+<meta property="og:title" content="JSON UI Previewer — Case Study" />
+<meta property="og:description" content="A React tool that reconstructs Photoshop-exported game UIs from JSON/plist + texture atlases." />
+<meta property="og:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<meta name="twitter:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<link rel="icon" href="../assets/img/favicon.ico" />
+<link rel="stylesheet" href="../assets/css/case-study.css" />
+</head>
+<body>
+
+
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-brand" href="../index.html">MK<span class="dot">.</span></a>
+    <div class="cs-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../casestudy.html">Case Studies</a>
+    </div>
+  </div>
+</nav>
+
+
+<header class="cs-wrap cs-hero">
+  <a class="cs-back-link" href="../casestudy.html">← Case Studies</a>
+
+  <div class="cs-badge-row">
+    <svg viewBox="0 0 64 64" width="56" height="56" aria-label="JSON UI Previewer">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#0b1220"/>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display'" font-weight="700" font-size="22" fill="#3b82f6">JU</text>
+    </svg>
+    <div>
+      <p class="cs-eyebrow">Tooling · React · Game UI</p>
+      <p class="cs-meta">2025 · 5 min read</p>
+      <p class="cs-emp">Built while employed at <a href="https://rubyseven.com/" target="_blank" rel="noreferrer">Ruby Seven Studios</a> · UI/UX Artist</p>
+    </div>
+  </div>
+
+  <h1 class="cs-title">JSON UI Previewer</h1>
+  <p class="cs-summary">A previewer that takes the JSON (or plist) a designer exports from Photoshop and re-renders the entire game UI in the browser — pulling sprites straight from the texture atlas, switching orientation, dragging elements, and stepping through every screen in a single session.</p>
+  <p class="cs-built-note">Curated to preview JSON UI from game assets made in Photoshop and packed into a texture pack — built while employed at <a href="https://rubyseven.com/" target="_blank" rel="noreferrer">Ruby Seven Studios</a> as a UI/UX artist.</p>
+
+  <div class="cs-cta-row">
+    <a class="cs-btn-dark" href="https://ai.studio/apps/4cd41747-3934-4650-a365-c181cb467c02" target="_blank" rel="noreferrer">▶ Open Previewer →</a>
+    <a class="cs-btn-ghost" href="https://github.com/yemkhan/JSON-UI-Previewer" target="_blank" rel="noreferrer">View on GitHub →</a>
+    <a class="cs-btn-ghost" href="#screenshot">See the tool ↓</a>
+  </div>
+</header>
+
+<section class="cs-wrap">
+  <div class="cs-stats">
+    <div class="cs-stat"><p class="cs-stat-v">JSON · plist</p><p class="cs-stat-k">Formats supported</p></div>
+    <div class="cs-stat"><p class="cs-stat-v">Multi</p><p class="cs-stat-k">Screens / session</p></div>
+    <div class="cs-stat"><p class="cs-stat-v">↔ / ↕</p><p class="cs-stat-k">Orientations</p></div>
+    <div class="cs-stat"><p class="cs-stat-v">0</p><p class="cs-stat-k">Round-trips to engine</p></div>
+  </div>
+</section>
+
+<section class="cs-wrap-wide" id="screenshot" style="scroll-margin-top:80px;margin-top:64px">
+  <div class="cs-shot">
+    <img src="../assets/img/case-studies/jsonui-previewer.png" alt="JSON UI Previewer — dark desktop-style window with Preview / Code tabs, an Open Folder button, and an empty layout canvas waiting for a screen to be selected." loading="lazy"/>
+  </div>
+  <p class="cs-shot-cap">01 · The shell — drop a folder of JSON + atlas files in to populate every screen on the left.</p>
+
+  <div class="cs-shot" style="margin-top:40px">
+    <img src="../assets/img/case-studies/jsonui-previewer-loaded.png" alt="JSON UI Previewer with a loaded project — a 'Winter Wonderland' sweepstakes screen rendered on the canvas, 25 detected screens in the left sidebar, and the right properties panel showing the selected object's name, X/Y, width/height plus its source JSON." loading="lazy"/>
+  </div>
+  <p class="cs-shot-cap">02 · Loaded — sidebar lists every detected screen, canvas renders the live UI, properties panel shows the selected node and editable source JSON.</p>
+</section>
+
+<section class="cs-wrap-wide" style="margin-top:48px">
+  <div class="cs-features">
+    <p class="cs-features-tag">/ What's on screen</p>
+    <div class="cs-features-grid">
+      <div class="cs-feature"><span class="dot"></span><p><strong>Detected screens.</strong> Left sidebar auto-lists every screen in the loaded folder — 25 in this project — with the asset / widget counts shown in the top bar.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Live canvas.</strong> Centre renders the actual UI from JSON + atlas. Click any element to select it.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Selected object.</strong> Right panel shows name, X, Y, W, H and the live JSON for the picked node — editable, with a reset button.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Source JSON.</strong> Full source tree is mirrored below — edit, reload, or download the file straight from the panel.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Mobile · Canvas · Portrait.</strong> Three top-bar toggles flip the canvas between mobile frame, raw canvas, and portrait/landscape orientation.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Run mode.</strong> The Run button switches into interactive playback — every button reacts with its real hover / pressed / disabled atlas state.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Labels & visibility.</strong> Toggle element labels, show/hide groups, zoom in / out, fit-to-screen and reset view — same muscle memory as a DCC tool.</p></div>
+      <div class="cs-feature"><span class="dot"></span><p><strong>Drag-to-edit.</strong> Pick up any node on the canvas and reposition it to sanity-check spacing without re-exporting from Photoshop.</p></div>
+    </div>
+  </div>
+</section>
+
+<article class="cs-wrap cs-article">
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">01</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The problem</p>
+      <h2 class="cs-section-title">You can't see the UI you just designed.</h2>
+      <div class="cs-section-body">
+        <p>Game UIs designed in Photoshop don't ship as Photoshop files — they ship as a <span class="cs-mono">JSON</span> (or <span class="cs-mono">plist</span>) layout description plus a <span class="cs-mono">.jpg</span> texture atlas. The moment those two files leave the designer's machine, nobody can actually <em>look</em> at the result until an engineer wires them into the game build. Was the export clean? Did a node land off-screen? Is the atlas slicing the right sprite for that button? You find out after a full engine round-trip — sometimes hours later.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">02</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The insight</p>
+      <h2 class="cs-section-title">The JSON already says where everything goes.</h2>
+      <div class="cs-section-body">
+        <p>The exported layout file isn't opaque — it's a tree of nodes with positions, sizes, anchors, and a reference into the atlas. A previewer doesn't need the game engine; it just needs to read the tree, look up each sprite rectangle in the atlas <span class="cs-mono">.jpg</span>, and draw the same node hierarchy in the browser. From there, every extra feature — interaction, drag, orientation, multi-screen — is just more behaviour on the same tree.</p>
+      </div>
+    </div>
+  </section>
+
+  <figure class="cs-figure">
+    <svg viewBox="0 0 760 150" role="img" aria-label="Photoshop exports JSON and a texture atlas, which the previewer reads to reconstruct the UI in the browser.">
+      <defs><marker id="arrow-ju" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d1d1f"/></marker></defs>
+      <rect x="10" y="45" width="160" height="60" rx="12" fill="#1d1d1f"/>
+      <text x="90" y="80" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Photoshop UI</text>
+      <line x1="175" y1="75" x2="245" y2="45" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow-ju)"/>
+      <line x1="175" y1="75" x2="245" y2="105" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow-ju)"/>
+      <rect x="250" y="15" width="180" height="50" rx="12" fill="#fff" stroke="#1d1d1f"/>
+      <text x="340" y="45" text-anchor="middle" font-size="13" font-weight="600" fill="#1d1d1f">JSON / plist (layout)</text>
+      <rect x="250" y="85" width="180" height="50" rx="12" fill="#fff" stroke="#1d1d1f"/>
+      <text x="340" y="115" text-anchor="middle" font-size="13" font-weight="600" fill="#1d1d1f">Texture atlas (.jpg)</text>
+      <line x1="435" y1="40" x2="510" y2="70" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow-ju)"/>
+      <line x1="435" y1="110" x2="510" y2="80" stroke="#1d1d1f" stroke-width="2" marker-end="url(#arrow-ju)"/>
+      <rect x="515" y="45" width="230" height="60" rx="12" fill="#ff6b1a"/>
+      <text x="630" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">JSON UI Previewer</text>
+      <text x="630" y="90" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" opacity="0.9">renders · interacts · edits</text>
+    </svg>
+    <p class="cs-figcap">One folder in. A live, clickable UI out.</p>
+  </figure>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">03</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The build</p>
+      <h2 class="cs-section-title">A desktop-style window for game UIs.</h2>
+      <div class="cs-section-body">
+        <p><span class="cs-mono">JSON UI Previewer</span> is a React app that looks and feels like a small DCC tool: a left sidebar lists every screen in the loaded folder, the centre is the canvas, and a top bar carries the orientation, run, and view-mode toggles. Point it at a folder of exported JSON/plist + atlas files and every screen in the project becomes a clickable entry in the sidebar.</p>
+        <ul class="cs-list">
+          <li><span class="bullet"></span><p><strong>Sprite-accurate rendering.</strong> Each UI node reads its frame out of the atlas .jpg and gets drawn at the position the JSON says — no engine, no rebuild.</p></li>
+          <li><span class="bullet"></span><p><strong>Interactable for real.</strong> The Run button switches the canvas into play mode — every button responds, hover / pressed / disabled atlas states swap dynamically, just like in-game.</p></li>
+          <li><span class="bullet"></span><p><strong>Orientation toggle.</strong> Flip the same layout between landscape and portrait to catch anchor and safe-area bugs before they ship.</p></li>
+          <li><span class="bullet"></span><p><strong>Drag-to-edit.</strong> Pick up any element on the canvas and reposition it to sanity-check spacing and alignment without re-exporting from Photoshop.</p></li>
+          <li><span class="bullet"></span><p><strong>Multi-screen sessions.</strong> Load a whole app, web view, or game's worth of screens at once and jump between them from the sidebar — no reloading per screen.</p></li>
+          <li><span class="bullet"></span><p><strong>Fixes the plist viewing pain.</strong> Handles the awkward .plist export path that previously had no good viewer — same tree, same atlas lookup, same canvas.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">04</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The outcome</p>
+      <h2 class="cs-section-title">Catch UI bugs in seconds, not builds.</h2>
+      <div class="cs-section-body">
+        <p>The whole point is to close the loop. Designer exports the JSON, drops the folder into the previewer, and within seconds knows whether the layout, the atlas slicing, and the button states are all correct — long before an engineer ever touches the build. The plist path that used to be a black box is now just another screen in the sidebar.</p>
+
+        <div class="cs-outcome">
+          <p class="cs-outcome-tag">/ Grab the tool</p>
+          <h3>JSON UI Previewer</h3>
+          <p>Open source. Clone, point it at your exports folder, and start previewing your <span class="cs-mono-dark">.json</span> and <span class="cs-mono-dark">.plist</span> UIs in the browser.</p>
+          <div class="cs-outcome-cta">
+            <a class="cs-btn-light" href="https://github.com/yemkhan/JSON-UI-Previewer" target="_blank" rel="noreferrer">Grab on GitHub →</a>
+            <a class="cs-btn-link" href="../casestudy.html">← More case studies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
+
+<footer class="cs-foot">
+  <div class="cs-foot-inner">
+    <span>© 2026 Muzammil Khan</span>
+    <a href="../casestudy.html">← All case studies</a>
+  </div>
+</footer>
+
+<div id="pageFade" class="page-fade" aria-hidden="true"></div>
+<script>
+(function(){
+  var fade=document.getElementById("pageFade");
+  if(!fade)return;
+  requestAnimationFrame(function(){fade.classList.add("in");requestAnimationFrame(function(){fade.classList.remove("in");});});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+    var h=a.getAttribute("href");
+    if(!h||h.startsWith("#")||h.startsWith("mailto:")||h.startsWith("tel:"))return;
+    if(a.target==="_blank"||a.hasAttribute("download"))return;
+    if(/^https?:/i.test(h)&&!h.includes(location.host))return;
+    if(!/\.html(\?|#|$)/i.test(h)&&h!=="/")return;
+    e.preventDefault();fade.classList.add("in");
+    setTimeout(function(){window.location.href=h;},480);
+  });
+})();
+</script>
+</body>
+</html>

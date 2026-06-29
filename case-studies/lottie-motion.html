@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>After Effects → Lottie Interaction Design — Case Study · Muzammil Khan</title>
+<meta name="description" content="Animating motion states in After Effects, exporting through Lottie, and wiring them into interactive web components." />
+<meta property="og:title" content="After Effects → Lottie Interaction Design" />
+<meta property="og:description" content="Micro-motion as a real design surface — from AE timeline to interactive web." />
+<meta property="og:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<meta name="twitter:image" content="https://yemkhan.github.io/assets/img/muzammil-memoji.png" />
+<link rel="icon" href="../assets/img/favicon.ico" />
+<link rel="stylesheet" href="../assets/css/case-study.css" />
+</head>
+<body>
+
+
+<nav class="cs-nav">
+  <div class="cs-nav-inner">
+    <a class="cs-brand" href="../index.html">MK<span class="dot">.</span></a>
+    <div class="cs-nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../casestudy.html">Case Studies</a>
+    </div>
+  </div>
+</nav>
+
+
+<header class="cs-wrap cs-hero">
+  <a class="cs-back-link" href="../casestudy.html">← Case Studies</a>
+  <div class="cs-badge-row">
+    <div style="width:56px;height:56px;border-radius:14px;background:#00DDB3;color:#0b1220;display:grid;place-items:center;font-weight:800;font-size:22px">Lo</div>
+    <div>
+      <p class="cs-eyebrow">After Effects → Lottie · Web Motion</p>
+      <p class="cs-meta">2026 · 4 min read</p>
+    </div>
+  </div>
+  <h1 class="cs-title">After Effects → Lottie Interaction Design</h1>
+  <p class="cs-summary">Animating motion states in After Effects, exporting through Lottie, and wiring them into interactive web components — micro-motion as a real design surface.</p>
+  <div class="cs-cta-row">
+    <a class="cs-btn-dark" href="#lottie-stage">▶ Try the Interactive Lottie →</a>
+  </div>
+</header>
+
+<section class="cs-wrap">
+  <div class="lottie-stage">
+    <canvas id="yemice-lottie" class="lottie-canvas" width="1080" height="1920" aria-label="Interactive Lottie state machine preview"></canvas>
+    <div class="lottie-controls" aria-label="Lottie state controls">
+      <button type="button" data-lottie-input="vanilla">Vanilla</button>
+      <button type="button" data-lottie-input="straw">Straw</button>
+      <button type="button" data-lottie-input="reset">Start New</button>
+    </div>
+  </div>
+  <p class="lottie-note">↑ State-machine Lottie — tap the animation or use the controls</p>
+</section>
+
+<article class="cs-wrap cs-article">
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">01</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The pipeline</p>
+      <h2 class="cs-section-title">From timeline to interactive web, one export at a time.</h2>
+      <div class="cs-section-body">
+        <p>The web doesn't need a video file. It needs a vector animation that can react — to scroll, to hover, to a click, to a state change. That's what Lottie is for. The trick is treating After Effects as a <em>component authoring tool</em>, not a video editor: every layer is a named state, every marker is an interaction trigger, every Bodymovin export is a designed contract with the front-end.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">02</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The build</p>
+      <h2 class="cs-section-title">Animate states. Export as <span class="cs-mono">.lottie</span>. Drop in.</h2>
+      <div class="cs-section-body">
+        <p>The animation above ships as a single <span class="cs-mono">.lottie</span> file with a Lottie Creator state machine inside it. The web player loads <span class="cs-mono">StateMachine1</span>, then routes button and canvas clicks into named inputs like <span class="cs-mono">vanilla</span>, <span class="cs-mono">straw</span>, and <span class="cs-mono">reset</span> so the animation changes state instead of just looping like a video.</p>
+        <ul class="cs-list">
+          <li><span class="bullet"></span><p><strong>One file, every browser.</strong> The <code class="cs-mono">.lottie</code> archive bundles the animation JSON, fonts, and any inline assets — no missing-asset edge cases.</p></li>
+          <li><span class="bullet"></span><p><strong>State-driven, not frame-driven.</strong> Layers and markers are named for intent (<em>idle</em>, <em>hover</em>, <em>pressed</em>, <em>success</em>) so the front-end can play segments instead of guessing frame numbers.</p></li>
+          <li><span class="bullet"></span><p><strong>Interactive surface.</strong> The dotLottie player exposes events for hover, click, segment-end — letting micro-motion drive real UI behaviour.</p></li>
+          <li><span class="bullet"></span><p><strong>Tiny payload.</strong> Vector + JSON means a state animation that would be a 2&nbsp;MB MP4 lands as a 30&nbsp;KB asset.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section">
+    <div><p class="cs-section-num">03</p></div>
+    <div>
+      <p class="cs-section-kicker">/ The outcome</p>
+      <h2 class="cs-section-title">Motion that lives inside the product, not next to it.</h2>
+      <div class="cs-section-body">
+        <p>The classic motion-design failure mode is the gorgeous reel that never makes it into the shipping product. Lottie closes that gap — the animation you approved in After Effects is literally the animation that loads in production. No "we'll re-create it in code." No fidelity loss. Just the file.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-outcome">
+    <p class="cs-outcome-tag">/ Want this in your product?</p>
+    <h3>Hire me for the motion layer.</h3>
+    <p>Interaction states, loading spinners, success moments, illustrated onboarding sequences — any motion surface that needs to feel native to a web or mobile product.</p>
+    <div class="cs-outcome-cta">
+      <a class="cs-btn-light" href="../index.html#contact">Get in touch →</a>
+      <a class="cs-btn-link" href="../casestudy.html">← More case studies</a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="cs-foot">
+  <div class="cs-foot-inner">
+    <span>© 2026 Muzammil Khan</span>
+    <a href="../casestudy.html">← All case studies</a>
+  </div>
+</footer>
+
+<div id="pageFade" class="page-fade" aria-hidden="true"></div>
+<script type="module">
+import { DotLottie } from 'https://unpkg.com/@lottiefiles/dotlottie-web@0.74.0/dist/index.js';
+import { yemiceDotLottieBuffer } from '../assets/lottie/yemice-dotlottie-data.js';
+
+const canvas = document.getElementById('yemice-lottie');
+const dotLottie = new DotLottie({
+  canvas,
+  data: yemiceDotLottieBuffer(),
+  autoplay: true,
+  stateMachineId: 'StateMachine1',
+  renderConfig: { autoResize: true }
+});
+
+function setInput(name){
+  if(!dotLottie.isReady) return;
+  dotLottie.stateMachineSetBooleanInput(name, true);
+}
+
+document.querySelectorAll('[data-lottie-input]').forEach((button) => {
+  button.addEventListener('click', () => setInput(button.dataset.lottieInput));
+});
+</script>
+<script>
+(function(){
+  var fade=document.getElementById("pageFade");
+  if(!fade)return;
+  requestAnimationFrame(function(){fade.classList.add("in");requestAnimationFrame(function(){fade.classList.remove("in");});});
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+    var h=a.getAttribute("href");
+    if(!h||h.startsWith("#")||h.startsWith("mailto:")||h.startsWith("tel:"))return;
+    if(a.target==="_blank"||a.hasAttribute("download"))return;
+    if(/^https?:/i.test(h)&&!h.includes(location.host))return;
+    if(!/\.html(\?|#|$)/i.test(h)&&h!=="/")return;
+    e.preventDefault();fade.classList.add("in");
+    setTimeout(function(){window.location.href=h;},480);
+  });
+})();
+</script>
+</body>
+</html>
